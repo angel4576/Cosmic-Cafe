@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
     private int gFieldLayer;
     
+    //public int[]arr;
 
     // Start is called before the first frame update
     void Start()
