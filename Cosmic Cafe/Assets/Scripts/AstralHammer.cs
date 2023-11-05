@@ -8,6 +8,7 @@ public class AstralHammer : MonoBehaviour
     private bool triggered = false;
     private Rigidbody2D rb;
     private int intake = 0;
+    private bool operating = false;
     private bool operationDone = false;
 
     // Start is called before the first frame update
@@ -18,13 +19,14 @@ public class AstralHammer : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && triggered && PlayerMovement.held != 0)
+        if (Input.GetKeyDown(KeyCode.E) && triggered && PlayerMovement.held != 0 && !operating)
         {
             intake = PlayerMovement.held;
             PlayerMovement.held = 0;
+            
             Debug.Log(PlayerMovement.held);
 
-
+            operating = true;
             Debug.Log("Operation starts");
             StartCoroutine(OperatingTask());
         }
@@ -33,6 +35,7 @@ public class AstralHammer : MonoBehaviour
         {
             PlayerMovement.end[intake + 5] = true;
             operationDone = false;
+            operating = false;
         }
     }
 
