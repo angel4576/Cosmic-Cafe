@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
         isInteract = Input.GetButton("Interact");
         if (isInteract)
         {
-            Debug.Log("Interact");
+            //Debug.Log("Interact");
         }
     }
 
