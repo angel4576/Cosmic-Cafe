@@ -18,8 +18,12 @@ public class Pitfall : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         Debug.Log("Game Over");
-        UnityEditor.EditorApplication.isPlaying = false;
-        // Application.Quit();
+        #if UNITY_STANDALONE
+            Application.Quit();
+        #endif
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #endif
     }
 
 }
