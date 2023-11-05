@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Pitfall : MonoBehaviour
 {
@@ -18,12 +19,7 @@ public class Pitfall : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         Debug.Log("Game Over");
-        #if UNITY_STANDALONE
-            Application.Quit();
-        #endif
-        #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-        #endif
+        SceneManager.LoadScene("Gameover Screen");
     }
 
 }

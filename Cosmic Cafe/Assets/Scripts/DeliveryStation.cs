@@ -83,6 +83,6 @@ public class DeliveryStation : MonoBehaviour
 
     private void timerEnded()
     {
-        //End Game
+        SceneManager.LoadScene("Gameover Screen");
     }
 }
