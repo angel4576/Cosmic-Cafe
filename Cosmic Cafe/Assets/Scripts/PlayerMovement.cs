@@ -17,16 +17,25 @@ public class PlayerMovement : MonoBehaviour
     public bool isInteract;
     public bool isRecentlyTeleported;
 
-    private int gFieldLayer;
-    
-    //public int[]arr;
 
-    // Start is called before the first frame update
+    private int gFieldLayer;
+
+    public static int held;
+    public static bool[] end = new bool[9];
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
 
         gFieldLayer = LayerMask.NameToLayer("Gravity Field");
+        held = 0;
+        gFieldLayer = LayerMask.NameToLayer("Gravity Field");
+
+        held = 0;
+        for (int i = 0; i < 9; i++)
+        {
+            end[i] = false;
+        }
     }
 
     // Update is called once per frame

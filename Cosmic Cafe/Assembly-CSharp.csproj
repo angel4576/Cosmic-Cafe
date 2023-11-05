@@ -36,10 +36,16 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Pitfall.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\BlackHole.cs" />
+     <Compile Include="Assets\Scripts\StardustSpawner.cs" />
+     <Compile Include="Assets\Scripts\Pitfall.cs" />
+     <Compile Include="Assets\Scripts\TemporalTraveler.cs" />
+     <Compile Include="Assets\Scripts\GraviticCompressor.cs" />
+     <Compile Include="Assets\Scripts\AstralHammer.cs" />
      <Compile Include="Assets\Scripts\UIManager.cs" />
+     <Compile Include="Assets\Scripts\Moon Spawner.cs" />
+     <Compile Include="Assets\Scripts\StarSpawner.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
