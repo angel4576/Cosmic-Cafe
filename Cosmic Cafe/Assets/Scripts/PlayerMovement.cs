@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     public float speed = 8f;
     public bool isInteract;
+    public bool isRecentlyTeleported;
     public Transform destination;
 
     // Start is called before the first frame update
@@ -28,6 +29,12 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate() {
         GroundMovement();
+    }
+
+    public IEnumerator CoolDown(){
+        isRecentlyTeleported = true;
+        yield return new WaitForSeconds(1f);
+        isRecentlyTeleported = false;
     }
 
     void GroundMovement()

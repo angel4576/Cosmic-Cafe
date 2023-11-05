@@ -6,11 +6,9 @@ using UnityEngine;
 public class BlackHole : MonoBehaviour
 {
 
-    public GameObject player;
     public Transform destination;
     public PlayerMovement movement;
-    public bool isAccessed;
-    public bool isPlayerInside;
+    bool isRecentlyTeleported;
     // public float freezeTime;
     // private float freezeEndTime;
 
@@ -23,23 +21,27 @@ public class BlackHole : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(movement.isInteract && isPlayerInside){
-            player.transform.position = destination.position;
-        }
+        
         
     }
+   
+    // why?
+    // public IEnumerator CoolDown(){
+    //     isRecentlyTeleported = true;
+    //     yield return new WaitForSeconds(1f);
+    //     isRecentlyTeleported = false;
+    // }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        isPlayerInside = true;
-        
+        if(!movement.isRecentlyTeleported){
+            other.transform.position = destination.position;
+            StartCoroutine(movement.CoolDown());
+            //StartCoroutine(CoolDown());
+        }
 
-        // isAccessed = true;
-
-        // freezeEndTime = Time.time + freezeTime; 
     }
 
     private void OnTriggerExit2D(Collider2D other) {
-        isPlayerInside = false;
     }
 }
 
