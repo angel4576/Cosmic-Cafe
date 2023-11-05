@@ -4,34 +4,47 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Player Speed")]
     private float xDirection;
     private float yDirection;
-    private Rigidbody2D rb;
     public float speed = 8f;
+    public float speedDivisor = 3f;
+
+    private Rigidbody2D rb;
+    public Transform destination;
+    
+    [Header("Player Status")]
     public bool isInteract;
     public bool isRecentlyTeleported;
-    public Transform destination;
+
+    private int gFieldLayer;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        gFieldLayer = LayerMask.NameToLayer("Gravity Field");
     }
 
     // Update is called once per frame
     void Update()
     {
         isInteract = Input.GetButton("Interact");
-        if(isInteract){
+        if (isInteract)
+        {
             Debug.Log("Interact");
         }
     }
 
-    void FixedUpdate() {
+    void FixedUpdate()
+    {
         GroundMovement();
     }
 
-    public IEnumerator CoolDown(){
+    public IEnumerator CoolDown()
+    {
         isRecentlyTeleported = true;
         yield return new WaitForSeconds(1f);
         isRecentlyTeleported = false;
@@ -46,11 +59,24 @@ public class PlayerMovement : MonoBehaviour
         // rb.AddForce(new Vector2(xDirection * speed, yDirection * speed));
     }
 
-    // private void OnTriggerEnter2D(Collider2D other) {
-        
-    //     if(isInteract){
-    //         transform.position = destination.position;
-    //     }
-    // }
-    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+
+        if (other.gameObject.layer == gFieldLayer)
+        {
+            Debug.Log("Slow Down!");
+            speed /= speedDivisor;
+        }
+
+    }
+
+    private void OnTriggerExit2D(Collider2D other) 
+    {
+        if (other.gameObject.layer == gFieldLayer)
+        {
+            Debug.Log("Recover speed!");
+            speed *= speedDivisor;
+        }    
+    }
+
 }
