@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isRecentlyTeleported;
     public Transform destination;
 
+<<<<<<< Updated upstream
     public static int held;
     public static bool end1 = false;
     public static bool end2 = false;
@@ -22,12 +23,28 @@ public class PlayerMovement : MonoBehaviour
     public static bool end7 = false;
     public static bool end8 = false;
     public static bool end9 = false;
+=======
+    private int gFieldLayer;
+
+    public static int held;
+    public static bool[] end = new bool[9];
+>>>>>>> Stashed changes
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+<<<<<<< Updated upstream
         held = 0;
+=======
+        gFieldLayer = LayerMask.NameToLayer("Gravity Field");
+
+        held = 0;
+        for (int i = 0; i < 9; i++)
+        {
+            end[i] = false;
+        }
+>>>>>>> Stashed changes
     }
 
     // Update is called once per frame

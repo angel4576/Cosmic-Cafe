@@ -33,17 +33,29 @@ public class Spawner : MonoBehaviour
         {
             if(intake == 1)
             {
+<<<<<<< Updated upstream
                 PlayerMovement.end1 = true;
+=======
+                PlayerMovement.end[0] = true;
+>>>>>>> Stashed changes
                 Debug.Log("Star reborn!");
             }
             if (intake == 2)
             {
+<<<<<<< Updated upstream
                 PlayerMovement.end2 = true;
+=======
+                PlayerMovement.end[1] = true;
+>>>>>>> Stashed changes
                 Debug.Log("Eldritch Moon descends!");
             }
             if (intake == 3)
             {
+<<<<<<< Updated upstream
                 PlayerMovement.end3 = true;
+=======
+                PlayerMovement.end[2] = true;
+>>>>>>> Stashed changes
                 Debug.Log("Gas Giant coalesces!");
             }
         }
