@@ -12,10 +12,22 @@ public class PlayerMovement : MonoBehaviour
     public bool isRecentlyTeleported;
     public Transform destination;
 
+    public static int held;
+    public static bool end1 = false;
+    public static bool end2 = false;
+    public static bool end3 = false;
+    public static bool end4 = false;
+    public static bool end5 = false;
+    public static bool end6 = false;
+    public static bool end7 = false;
+    public static bool end8 = false;
+    public static bool end9 = false;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        held = 0;
     }
 
     // Update is called once per frame
@@ -23,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
     {
         isInteract = Input.GetButton("Interact");
         if(isInteract){
-            Debug.Log("Interact");
+            //Debug.Log("Interact");
         }
     }
 
