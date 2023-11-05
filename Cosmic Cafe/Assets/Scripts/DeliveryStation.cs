@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +9,7 @@ public class DeliveryStation : MonoBehaviour
     private Rigidbody2D rb;
     private int[] recipe = new int[3];
     private bool triggered;
+    public TextMeshProUGUI timer;
 
     // Start is called before the first frame update
     void Start()
@@ -25,11 +27,23 @@ public class DeliveryStation : MonoBehaviour
             recipe = SceneVariableTracker.recipe3;
         }
         rb = GetComponent<Rigidbody2D>();
+
+        StartCoroutine(CountDown());
+
+    }
+
+    private IEnumerator CountDown(){
+        while(SceneVariableTracker.roundTimer > 0)
+        {
+            timer.text = SceneVariableTracker.roundTimer.ToString();
+            yield return new WaitForSeconds(1f);
+            SceneVariableTracker.roundTimer--;
+        }
     }
 
     void Update()
     {
-        SceneVariableTracker.roundTimer -= Time.deltaTime;
+        // SceneVariableTracker.roundTimer -= Time.deltaTime;
         //Debug.Log(SceneVariableTracker.roundTimer);
 
         if (SceneVariableTracker.roundTimer <= 0.0f)
