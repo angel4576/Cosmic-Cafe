@@ -17,24 +17,17 @@ public class PlayerMovement : MonoBehaviour
     public bool isInteract;
     public bool isRecentlyTeleported;
 
-<<<<<<< Updated upstream
-    private int gFieldLayer;
-    
-=======
-    
+
     private int gFieldLayer;
 
     public static int held;
     public static bool[] end = new bool[9];
->>>>>>> Stashed changes
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-<<<<<<< Updated upstream
 
         gFieldLayer = LayerMask.NameToLayer("Gravity Field");
-=======
         held = 0;
         gFieldLayer = LayerMask.NameToLayer("Gravity Field");
 
@@ -43,7 +36,6 @@ public class PlayerMovement : MonoBehaviour
         {
             end[i] = false;
         }
->>>>>>> Stashed changes
     }
 
     // Update is called once per frame
