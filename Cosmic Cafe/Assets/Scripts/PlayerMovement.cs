@@ -29,9 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
         gFieldLayer = LayerMask.NameToLayer("Gravity Field");
         held = 0;
-        gFieldLayer = LayerMask.NameToLayer("Gravity Field");
 
-        held = 0;
         for (int i = 0; i < 9; i++)
         {
             end[i] = false;
