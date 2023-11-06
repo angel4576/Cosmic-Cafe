@@ -50,13 +50,13 @@ public class DeliveryStation : MonoBehaviour
             {
                 recipe = SceneVariableTracker.recipe2;
                 SceneManager.LoadScene("Round2");
-                SceneVariableTracker.roundTimer = 40.0f;
+                SceneVariableTracker.roundTimer = 60.0f;
             }
             else if(SceneVariableTracker.level == 3)
             {
                 recipe = SceneVariableTracker.recipe3;
                 SceneManager.LoadScene("Round3");
-                SceneVariableTracker.roundTimer = 40.0f;
+                SceneVariableTracker.roundTimer = 60.0f;
             }
         }
 
